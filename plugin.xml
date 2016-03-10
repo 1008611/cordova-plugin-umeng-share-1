@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin id="cordova-plugin-umeng-share-android" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/src/res">
+<plugin id="cordova-plugin-umeng-share" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/src/res">
     <name>UMeng Share Plugin</name>
     <description>UMeng share for cordova plugin</description>
     <author>Chirs</author>
@@ -209,8 +209,49 @@
     <!-- ios -->
     
     <platform name="ios">
-
-        <source-file src="src/ios/UMengShare.m"/>
+        <config-file parent="/*" target="config.xml">
+            <feature name="UMengShare">
+                <param name="ios-package" value="UMengShare"/>
+            </feature>
+        </config-file>
+        <config-file target="*/*-Info.plist" parent="CFBundleURLTypes">
+            <array>
+                <dict>
+                    <key>CFBundleURLName</key>
+                    <string>weixin</string>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>WX_APP_ID</string>
+                    </array>
+                </dict>
+            </array>
+        </config-file>
+        <config-file target="*/*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>weixin</string>
+                <string>wechat</string>
+            </array>
+        </config-file>
+        <config-file target="*/*-Info.plist" parent="NSAppTransportSecurity">
+            <dict>
+                <key>NSAllowsArbitraryLoads</key>
+                <true/>
+            </dict>
+        </config-file>
+        <config-file target="*/*-Info.plist" parent="CFBundleURLTypes">
+            <array>
+                <dict>
+                    <key>CFBundleURLName</key>
+                    <string>umeng_sina</string>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>SINA_APP_KEY</string>
+                    </array>
+                </dict>
+            </array>
+        </config-file>
+        <source-file src="src/ios/UmengSharePlugin.h"/>
+        <source-file src="src/ios/UmengSharePlugin.m"/>
 
         <!-- 微信SDK -->
         <source-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/Wechat/libSocialWechat.a" framework="true"/>
