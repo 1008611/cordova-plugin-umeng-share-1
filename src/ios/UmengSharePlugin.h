@@ -1,4 +1,7 @@
 #import <Cordova/CDV.h>
+#import "UMSocial.h"
+#import "UMSocialWechatHandler.h"
+#define UmengAppkey @"56d7a6bee0f55a86c70021d8"
 @interface Umeng : CDVPlugin
  - (void)init:(CDVInvokedUrlCommand*)command;
 @end
