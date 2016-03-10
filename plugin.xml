@@ -261,20 +261,6 @@
         <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/Wechat/WXApi.h" />
         <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/Wechat/WXApiObject.h" />
 
-        <!-- 微博SDK-->
-        <source-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/libSocialSinaSSO.a" framework="true"/>
-        <source-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/libWeiboSDK.a" framework="true"/>
-        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/UMSocialSinaSSOHandler.h"/>
-        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WBHttpRequest+WeiboShare.h"/>
-        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WBHttpRequest+WeiboToken.h"/>
-        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WBHttprequest+WeiboUser.h"/>
-        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WBHttpRequest.h"/>
-        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WBSDKBasicButton.h"/>
-        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WBSDKCommentButton.h"/>
-        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WeiboSDK.h"/>
-        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WeiboUser.h"/>
-        <resource-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WeiboSDK.bundle"/>
-
         <!-- 友盟SDK-->
         <source-file src="src/ios/UMSocial_Sdk_5.0/libUMSocial_Sdk_5.0.a" framework="true"/>
         <header-file src="src/ios/UMSocial_Sdk_5.0/Header/UMSocial.h" />
