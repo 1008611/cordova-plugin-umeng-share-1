@@ -67,9 +67,9 @@
         </config-file>
 
         <!-- src -->
-        <source-file src="src/andorid/UMengSharePlugin.java" target-dir="src/com/zoylus/cordova/umeng/share"/>
-        <source-file src="src/andorid/WBShareActivity.java" target-dir="src/com/zoylus/cordova/umeng/share"/>
-        <source-file src="src/andorid/WXEntryActivity.java" target-dir="src/com/zoylus/cordova/umeng/share"/>
+        <source-file src="src/android/UMengSharePlugin.java" target-dir="src/com/zoylus/cordova/umeng/share"/>
+        <source-file src="src/android/WBShareActivity.java" target-dir="src/com/zoylus/cordova/umeng/share"/>
+        <source-file src="src/android/WXEntryActivity.java" target-dir="src/com/zoylus/cordova/umeng/share"/>
 
         <!-- libs -->
         <source-file src="src/android/libs/android-support-v4.jar" target-dir="libs"/>
@@ -250,8 +250,9 @@
                 </dict>
             </array>
         </config-file>
-        <source-file src="src/ios/UmengSharePlugin.h"/>
-        <source-file src="src/ios/UmengSharePlugin.m"/>
+
+        <header-file src="src/ios/UmengSharePlugin.h" />
+        <source-file src="src/ios/UmengSharePlugin.m" />
 
         <!-- 微信SDK -->
         <source-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/Wechat/libSocialWechat.a" framework="true"/>
