@@ -4,4 +4,5 @@
 #define UmengAppkey @"56d7a6bee0f55a86c70021d8"
 @interface Umeng : CDVPlugin
  - (void)init:(CDVInvokedUrlCommand*)command;
+ - (void)share:(CDVInvokedUrlCommand*)command;
 @end

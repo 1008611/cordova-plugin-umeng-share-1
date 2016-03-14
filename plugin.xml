@@ -210,8 +210,8 @@
     
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
-            <feature name="UMengShare">
-                <param name="ios-package" value="UMengShare"/>
+            <feature name="UmengSharePlugin">
+                <param name="ios-package" value="UmengSharePlugin"/>
             </feature>
         </config-file>
         <config-file target="*/*-Info.plist" parent="CFBundleURLTypes">
@@ -226,31 +226,7 @@
                 </dict>
             </array>
         </config-file>
-        <config-file target="*/*-Info.plist" parent="LSApplicationQueriesSchemes">
-            <array>
-                <string>weixin</string>
-                <string>wechat</string>
-            </array>
-        </config-file>
-        <config-file target="*/*-Info.plist" parent="NSAppTransportSecurity">
-            <dict>
-                <key>NSAllowsArbitraryLoads</key>
-                <true/>
-            </dict>
-        </config-file>
-        <config-file target="*/*-Info.plist" parent="CFBundleURLTypes">
-            <array>
-                <dict>
-                    <key>CFBundleURLName</key>
-                    <string>umeng_sina</string>
-                    <key>CFBundleURLSchemes</key>
-                    <array>
-                        <string>SINA_APP_KEY</string>
-                    </array>
-                </dict>
-            </array>
-        </config-file>
-
+        
         <header-file src="src/ios/UmengSharePlugin.h" />
         <source-file src="src/ios/UmengSharePlugin.m" />
 
