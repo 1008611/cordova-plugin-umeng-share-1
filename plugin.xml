@@ -9,8 +9,8 @@
     <engines>
         <engine name="cordova" version=">=4.0"/>
     </engines>
-    <js-module name="UMengShare" src="www/umeng-share.js">
-        <clobbers target="UMengShare"/>
+    <js-module name="UmengSharePlugin" src="www/umeng-share.js">
+        <clobbers target="UmengSharePlugin"/>
     </js-module>
     <!-- android -->
     <platform name="android">
@@ -226,7 +226,7 @@
                 </dict>
             </array>
         </config-file>
-        
+
         <header-file src="src/ios/UmengSharePlugin.h" />
         <source-file src="src/ios/UmengSharePlugin.m" />
 

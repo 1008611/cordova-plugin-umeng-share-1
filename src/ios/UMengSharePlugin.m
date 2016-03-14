@@ -1,7 +1,7 @@
 #import <Cordova/CDV.h>
 #import "UmengSharePlugin.h"
 
-@implementation Umeng
+@implementation UmengSharePlugin
     - (void)init:(CDVInvokedUrlCommand*)command
     {
         //设置友盟社会化组件appkey
