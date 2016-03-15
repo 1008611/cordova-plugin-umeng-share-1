@@ -214,16 +214,176 @@
                 <param name="ios-package" value="UmengSharePlugin"/>
             </feature>
         </config-file>
+
+        <config-file target="*/*-Info.plist" parent="NSAppTransportSecurity">
+            <dict>
+                <key>NSExceptionDomains</key>
+                <dict>
+                    <key>log.umsns.com</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                        <true/>
+                        <key>NSTemporaryExceptionMinimumTLSVersion</key>
+                        <string>TLSv1.1</string>
+                    </dict>
+                    <key>sns.whalecloud.com</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                        <true/>
+                        <key>NSTemporaryExceptionMinimumTLSVersion</key>
+                        <string>TLSv1.1</string>
+                    </dict>
+
+                    <!-- 集成新浪微博对应的HTTP白名单-->
+                    <key>sina.cn</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                    </dict>
+                    <key>weibo.cn</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                    </dict>
+                    <key>weibo.com</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                    </dict>
+                    <key>sinaimg.cn</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                    </dict>
+                    <key>sinajs.cn</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                    </dict>
+                    <key>sina.com.cn</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                    </dict>
+                    <!-- 新浪微博-->
+
+                    <!-- 集成微信、QQ、Qzone、腾讯微博授权对应的HTTP白名单-->
+                    <key>qq.com</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                    </dict>
+                    <!-- 腾讯授权-->
+                </dict>
+                <key>NSAllowsArbitraryLoads</key>
+                <true/>
+            </dict>
+        </config-file>
         <config-file target="*/*-Info.plist" parent="CFBundleURLTypes">
             <array>
+                <!--微信应用appId，例如“wxd9a39c7122aa6516”-->
                 <dict>
                     <key>CFBundleURLName</key>
                     <string>weixin</string>
                     <key>CFBundleURLSchemes</key>
                     <array>
-                        <string>WX_APP_ID</string>
+                        <string>wxd9a39c7122aa6516</string>
                     </array>
                 </dict>
+                <!--“wb”+新浪appkey，例如“wb126663232”-->
+                <dict>
+                    <key>CFBundleURLName</key>
+                    <string>sina</string>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>wb126663232</string>
+                    </array>
+                </dict>
+                <!--“QQ”+腾讯QQ互联应用appId转换成十六进制（不足8位前面补0），例如“QQ05FC5B14”,注意大写-->
+                <dict>
+                    <key>CFBundleURLName</key>
+                    <string>QQ</string>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>wb126663232</string>
+                    </array>
+                </dict>
+                <!--“tencent“+腾讯QQ互联应用Id，例如“tencent100424468"-->
+                <dict>
+                    <key>CFBundleURLName</key>
+                    <string>Qzone</string>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>tencent100424468</string>
+                    </array>
+                </dict>
+            </array>
+        </config-file>
+
+        <config-file target="*/*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <!-- 微信 URL Scheme 白名单-->
+                <string>weixin</string>
+                <string>wechat</string>
+                <!-- 新浪微博 URL Scheme 白名单-->
+                <string>sinaweibohd</string>
+                <string>sinaweibo</string>
+                <string>sinaweibosso</string>
+                <string>weibosdk</string>
+                <string>weibosdk2.5</string>
+                <!-- QQ、Qzone URL Scheme 白名单-->
+                <string>mqqapi</string>
+                <string>mqq</string>
+                <string>mqqOpensdkSSoLogin</string>
+                <string>mqqconnect</string>
+                <string>mqqopensdkdataline</string>
+                <string>mqqopensdkgrouptribeshare</string>
+                <string>mqqopensdkfriend</string>
+                <string>mqqopensdkapi</string>
+                <string>mqqopensdkapiV2</string>
+                <string>mqqopensdkapiV3</string>
+                <string>mqzoneopensdk</string>
+                <string>wtloginmqq</string>
+                <string>wtloginmqq2</string>
+                <string>mqqwpa</string>
+                <string>mqzone</string>
+                <string>mqzonev2</string>
+                <string>mqzoneshare</string>
+                <string>wtloginqzone</string>
+                <string>mqzonewx</string>
+                <string>mqzoneopensdkapiV2</string>
+                <string>mqzoneopensdkapi19</string>
+                <string>mqzoneopensdkapi</string>
+                <string>mqqbrowser</string>
+                <string>mttbrowser</string>
             </array>
         </config-file>
 
@@ -237,6 +397,26 @@
         <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/Wechat/WXApi.h" />
         <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/Wechat/WXApiObject.h" />
 
+        <!-- QQ及Qzone OpenApi SDK -->
+        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/UMSocialQQHandler.h" />
+        <source-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/libSocialQQ.a" framework="true"/>
+        <source-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenAPI.framework" framework="true"/>
+        <resource-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenApi_IOS_Bundle.bundle"/>
+
+        <!-- 微博SDK-->
+        <source-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/libSocialSinaSSO.a" framework="true"/>
+        <source-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/libWeiboSDK.a" framework="true"/>
+        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/UMSocialSinaSSOHandler.h"/>
+        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WBHttpRequest+WeiboShare.h"/>
+        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WBHttpRequest+WeiboToken.h"/>
+        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WBHttprequest+WeiboUser.h"/>
+        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WBHttpRequest.h"/>
+        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WBSDKBasicButton.h"/>
+        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WBSDKCommentButton.h"/>
+        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WeiboSDK.h"/>
+        <header-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WeiboUser.h"/>
+        <resource-file src="src/ios/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WeiboSDK.bundle"/>
+        
         <!-- 友盟SDK-->
         <source-file src="src/ios/UMSocial_Sdk_5.0/libUMSocial_Sdk_5.0.a" framework="true"/>
         <header-file src="src/ios/UMSocial_Sdk_5.0/Header/UMSocial.h" />

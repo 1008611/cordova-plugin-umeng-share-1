@@ -6,6 +6,11 @@ cordova友盟分享插件
 #安装
 cordova plugin add https://github.com/freeocs/cordova-plugin-umeng-share-android.git --variable API_KEY=YOUR_UMENG_APP_KEY 
 
+#ios编译环境准备
+1. 添加SDK后需要手动添加系统库SystemConfiguration.framework 
+2. 若你的工程设置了all_load，需要添加手机QQ SDK需要的系统framework:Security.framework,libiconv.dylib,CoreGraphics.framework，libsqlite3.dylib，CoreTelephony.framework,ImageIO.framework,libstdc++
+.dylib,libz.dylib。
+
 #使用
 ##初始化
 在页面js开始能执行的地方
