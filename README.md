@@ -15,14 +15,14 @@ cordova plugin add https://github.com/freeocs/cordova-plugin-umeng-share-android
 ##初始化
 在页面js开始能执行的地方
 ```
-UMengShare.init(function () {
+UMengSharePlugin.init(function () {
 	console.log('UMengShare init success');
 });
 ```
 
 ##分享
 ```
-UMengShare.share('内容','标题','http://www.baidu.com', function(){
+UMengSharePlugin.share('内容','标题','http://www.baidu.com',’图片地址’, function(){
     console.log('分享成功');
 }, function(){
     console.log('分享失败');
