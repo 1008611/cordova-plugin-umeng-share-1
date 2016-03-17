@@ -9,7 +9,7 @@ cordova plugin add https://github.com/freeocs/cordova-plugin-umeng-share.git --v
 #ios编译环境准备
 1. 添加SDK后需要手动添加系统库SystemConfiguration.framework 
 2. 若你的工程设置了all_load，需要添加手机QQ SDK需要的系统framework:Security.framework,libiconv.dylib,CoreGraphics.framework，libsqlite3.dylib，CoreTelephony.framework,ImageIO.framework,libstdc++
-.dylib,libz.dylib。
+.dylib,libz.dylib,ImageIO.framework。
 
 #使用
 ##初始化
@@ -22,7 +22,7 @@ UMengSharePlugin.init(function () {
 
 ##分享
 ```
-UMengSharePlugin.share('内容','标题','http://www.baidu.com',’图片地址’, function(){
+UMengSharePlugin.share('内容','标题','http://www.baidu.com',’http://wwww.example.com/logo.png’, function(){
     console.log('分享成功');
 }, function(){
     console.log('分享失败');

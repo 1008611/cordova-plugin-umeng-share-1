@@ -12,6 +12,22 @@
     
     //如果你要支持不同的屏幕方向，需要这样设置，否则在iPhone只支持一个竖屏方向
     [UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskAll];
+    
+    //设置微信AppId，设置分享url，默认使用友盟的网址
+    [UMSocialWechatHandler setWXAppId:@"wxdafdsafdsfsaf"
+                            appSecret:@"da314312432"
+                                  url:@"http://www.umeng.com/social"];
+    
+
+    //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"3124"
+                                              secret:@"13241324"
+                                         RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    
+    //设置分享到QQ/Qzone的应用Id，和分享url 链接
+    [UMSocialQQHandler setQQWithAppId:@"1324132"
+                               appKey:@"1234312"
+                                  url:@"http://www.umeng.com/social"];
 }
 - (void)share:(CDVInvokedUrlCommand*)command
 {
@@ -19,35 +35,33 @@
     NSString* text = [command.arguments objectAtIndex:0];
     NSString* title = [command.arguments objectAtIndex:1];
     NSString* url = [command.arguments objectAtIndex:2];
-    //NSString* imageUrl = [command.arguments objectAtIndex:3];
-    //NSLog(@"imageUrl: %@",imageUrl);
+    NSString* imageUrl = [command.arguments objectAtIndex:3];
+    UIImage* image =[[UIImage alloc]initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
     
-    //NSString *aPath3=[NSString stringWithFormat:@"%@/Documents/%@.jpg",NSHomeDirectory(),@"test"];
-    //UIImage *imgFromUrl3=[[UIImage alloc]initWithContentsOfFile:aPath3];
     
+    // 微信相关设置
+    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeWeb;
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = url;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = url;
     [UMSocialData defaultData].extConfig.title = title;
     
+    // 手机QQ相关设置
+    [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeDefault;
+    [UMSocialData defaultData].extConfig.qqData.title = title;
+    //[UMSocialData defaultData].extConfig.qqData.shareText = weakSelf.objectTitle;
+    [UMSocialData defaultData].extConfig.qqData.url = url;
     
-    //设置微信AppId，设置分享url，默认使用友盟的网址
-    [UMSocialWechatHandler setWXAppId:@"wx0dd217e4af73378d"
-                            appSecret:@"da4150f467abd29d29008d64a27b2e3b"
-                                  url:url];
-    //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。
-    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"2479177297"
-                                              secret:@"2bbc99552e243de228f017b4ecf5d62f"
-                                         RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    // 新浪微博相关设置
+    [[UMSocialData defaultData].extConfig.sinaData.urlResource setResourceType:UMSocialUrlResourceTypeDefault url:url];
     
-    //设置分享到QQ/Qzone的应用Id，和分享url 链接
-    [UMSocialQQHandler setQQWithAppId:@"1105155569"
-                               appKey:@"aYZIXMhRhZyvTXy5"
-                                  url:@"http://www.umeng.com/social"];
+
     
     //注意：分享到微信好友、微信朋友圈、微信收藏、QQ空间、QQ好友等平台需要参考各自的集成方法
     //如果需要分享回调，请将delegate对象设置self，并实现下面的回调方法
     [UMSocialSnsService presentSnsIconSheetView:self.viewController
                                          appKey:UmengAppkey
                                       shareText:text
-                                     shareImage:[UIImage imageNamed:@"icon.png"]
+                                     shareImage:image
                                 shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToQQ,UMShareToQzone,UMShareToSina]
                                        delegate:nil];
     
