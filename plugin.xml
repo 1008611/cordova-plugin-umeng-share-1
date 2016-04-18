@@ -318,15 +318,6 @@
                         <string>wxd9a39c7122aa6516</string>
                     </array>
                 </dict>
-                <!--“wb”+新浪appkey，例如“wb126663232”-->
-                <dict>
-                    <key>CFBundleURLName</key>
-                    <string>sina</string>
-                    <key>CFBundleURLSchemes</key>
-                    <array>
-                        <string>wb126663232</string>
-                    </array>
-                </dict>
                 <!--“QQ”+腾讯QQ互联应用appId转换成十六进制（不足8位前面补0），例如“QQ05FC5B14”,注意大写-->
                 <dict>
                     <key>CFBundleURLName</key>
@@ -336,13 +327,13 @@
                         <string>wb126663232</string>
                     </array>
                 </dict>
-                <!--“tencent“+腾讯QQ互联应用Id，例如“tencent100424468"-->
+                <!--“wb”+新浪appkey，例如“wb126663232”-->
                 <dict>
                     <key>CFBundleURLName</key>
-                    <string>Qzone</string>
+                    <string>sina</string>
                     <key>CFBundleURLSchemes</key>
                     <array>
-                        <string>tencent100424468</string>
+                        <string>wb126663232</string>
                     </array>
                 </dict>
             </array>

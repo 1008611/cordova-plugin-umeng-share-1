@@ -14,7 +14,7 @@
     [UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskAll];
     
     //设置微信AppId，设置分享url，默认使用友盟的网址
-    [UMSocialWechatHandler setWXAppId:@WXAppId
+    [UMSocialWechatHandler setWXAppId:WXAppId
                             appSecret:WXAppSecret
                                   url:@"http://www.umeng.com/social"];
 
