@@ -10,7 +10,6 @@ import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.utils.Log;
-import com.umeng.socialize.common.SocializeConstants
 
 /**
  * Created by cdm on 1/5/16.
