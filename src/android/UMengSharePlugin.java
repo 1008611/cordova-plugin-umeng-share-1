@@ -10,11 +10,18 @@ import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.utils.Log;
+import com.umeng.socialize.common.SocializeConstants
 
 /**
  * Created by cdm on 1/5/16.
  */
 public class UMengSharePlugin extends CordovaPlugin{
+    private final static String WXAppId="wx12342956d1cab4f9";
+    private final static String WXAppSecret="a5ae111de7d9ea137e88a5e02c07c94d";
+    private final static String QQAppId="";
+    private final static String QQAppKey="";
+    private final static String SinaSSOAppKey="";
+    private final static String SinaSSOAppSecret="";
     @Override
     public boolean execute(String action,JSONArray args,CallbackContext callbackContext) throws JSONException{
         if(action.equals("init")){
@@ -26,13 +33,9 @@ public class UMengSharePlugin extends CordovaPlugin{
     }
 
     private void init(JSONArray args,CallbackContext callbackContext){
-        //微信    wx12342956d1cab4f9,a5ae111de7d9ea137e88a5e02c07c94d
-        PlatformConfig.setWeixin("wx0dd217e4af73378d","da4150f467abd29d29008d64a27b2e3b");
-        //豆瓣RENREN平台目前只能在服务器端配置
-        //新浪微博  AppKey    2479177297         AppSecret      2bbc99552e243de228f017b4ecf5d62f
-        PlatformConfig.setSinaWeibo("2479177297","2bbc99552e243de228f017b4ecf5d62f");
-        //新浪微博 appkey appsecret  1105151789 g3pSLkpIHAVLnsDp
-        PlatformConfig.setQQZone("1105151789","g3pSLkpIHAVLnsDp");
+        PlatformConfig.setWeixin(WXAppId,WXAppSecret);
+        PlatformConfig.setQQZone(QQAppId,QQAppKey);
+        PlatformConfig.setSinaWeibo(SinaSSOAppKey,SinaSSOAppSecret);
         callbackContext.success();
     }
 
@@ -48,9 +51,8 @@ public class UMengSharePlugin extends CordovaPlugin{
                 final SHARE_MEDIA[] displaylist=new SHARE_MEDIA[]{
                         SHARE_MEDIA.WEIXIN,
                         SHARE_MEDIA.WEIXIN_CIRCLE,
-                        SHARE_MEDIA.SINA,
                         SHARE_MEDIA.QQ,
-                        SHARE_MEDIA.QZONE
+                        SHARE_MEDIA.SINA
                 };
                 ShareAction action =  new ShareAction(cordova.getActivity()) ;
                 action.setDisplayList(displaylist) ;
